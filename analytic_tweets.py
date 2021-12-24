@@ -37,7 +37,7 @@ usuarios_mencionados = []
 for usuario in lista_usuarios:
     if df['text'].str.contains(usuario).any():
         usuarios_mencionados.append(usuario)
-print(f'Los usuarios mencionados en los tweets son: {usuarios_mencionados}')
+print(f'Solución punto 4: \nLos usuarios mencionados en los tweets son: {usuarios_mencionados}')
 
 print('--'*20)
 print('Solución punto 5')

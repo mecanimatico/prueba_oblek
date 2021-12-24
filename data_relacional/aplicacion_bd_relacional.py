@@ -2,7 +2,7 @@
 """
 Created on Thu Dec 23 17:04:04 2021
 
-@author: User
+@author: Heber Pareja Reinoso
 """
 
 import sqlite3
@@ -48,14 +48,39 @@ class Producto:
         for row in rows:
            print(row)
         
-# Se crea el producto aceite
-# Crear un menú en python
-# Desea listar o agregar producto
-
-# Se crea una instancia
-#aceite = Producto('oliosoya', 3500, 'grasas')
-
-# Para crear tabla
-#Producto.crear_tabla()
-# Para listar producto
-# Producto.listar_tabla()
+entrada = 0
+while entrada != 4:
+    print('--'*20)
+    print('1. Crear tabla')
+    print('2. Crear producto')
+    print('3. Listar productos')
+    print('4. Salir')
+    entrada = int(input('Ingrese una opción > '))
+    if entrada == 1:
+        try:
+            Producto.crear_tabla()
+            print('--'*20)
+            print('La tabla ha sido creada')
+        except:
+            print('--'*20)
+            print('La tabla ya existe')
+           
+    elif entrada == 2:
+        nombre =input('Ingrese nombre del producto >')
+        precio = input('Ingrese el valor del producto >')
+        seccion = input('Ingrese la sección del producto >')
+        producto = Producto(nombre, precio, seccion)
+        producto.guardar_producto()
+        print('--'*20)
+        print('Producto creado exitosamente')
+       
+    elif entrada == 3:
+        Producto.listar_productos()
+        
+    elif entrada == 4:
+        print('Gracias por visitarnos, te esperamos de nuevo')
+        break
+    else:
+        print('--'*20)
+        print('Opción no válida')
+    print('--'*20)
